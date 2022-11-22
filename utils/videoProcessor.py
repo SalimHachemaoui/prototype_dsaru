@@ -1,5 +1,5 @@
 from utils.imgTransform import cartoon_effect, edge_detect, face_detect, face_detect_cvlib, gender_recog_cvlib, object_detect_cvlib, rotate_track
-
+from utils.mobilenet import mobilenet
 from aiortc import MediaStreamTrack
 from av import VideoFrame
 
@@ -40,6 +40,9 @@ class VideoTransformTrack(MediaStreamTrack):
 
         elif self.transform == "cartoon":
             img = cartoon_effect(img)
+
+        elif self.transform == 'mobilenet':
+            img = mobilenet(img)
 
         else:
             # No transformation at all

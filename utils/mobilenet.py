@@ -6,8 +6,8 @@ import numpy as np
 
 load_dotenv(find_dotenv())
 
-prototxt_path ='model/mobilenet/MobileNetSSD_deploy.prototxt'
-model_path ='model/mobilenet/MobileNetSSD_deploy.caffemodel'
+prototxt_path ='utils/mobilenet/MobileNetSSD_deploy.prototxt'
+model_path ='utils/mobilenet/MobileNetSSD_deploy.caffemodel'
 
 min_confidence = 0.2
 classes = ['background',

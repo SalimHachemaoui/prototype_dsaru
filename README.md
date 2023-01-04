@@ -20,7 +20,7 @@ Using a python virtual environment like virtualenv or pipenv is recommended to a
 
 - git clone https://github.com/RumbleFiend/recog_prototype.git
 
-- cd recog_prototype
+- cd prototype_dsaru
 
 - virtualenv venv
 
@@ -30,6 +30,3 @@ Using a python virtual environment like virtualenv or pipenv is recommended to a
 
 - uvicorn server:app --reload
 
-## App preview
-
-https://recog-prototype.herokuapp.com/

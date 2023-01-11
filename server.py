@@ -11,6 +11,8 @@ import asyncio
 import json
 import logging
 import os
+import base64
+from io import BytesIO
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import uuid
 from aiortc import RTCPeerConnection, RTCSessionDescription
@@ -77,11 +79,17 @@ async def javascript(request):
 @app.post("/photo")
 async def photo(request: Request):
     form = await request.form()
-    transform = list(form.keys())[0]
-    print(transform)
-    contents = await form[transform].read()
-    image: bytes = processPhoto(contents, transform)
-    return StreamingResponse(io.BytesIO(image), media_type="image/png")
+    print('je suis forme',form)
+    transform = list(form.keys())
+    transformation = form [transform[0]]
+    transforms = transform[1]
+    contents = await form[transforms].read()
+    image: bytes = processPhoto(contents, transformation)
+    base64_str = base64.b64encode(image).decode()
+    #print(base64_str)
+    #base64_str = base64.b64encode(StreamingResponse(io.BytesIO(image), media_type="image/png")).decode()
+    #return StreamingResponse(io.BytesIO(image), media_type="image/png")
+    return f"data:image/png;base64,{base64_str}"
 
 @app.post("/video/")
 async def video(model_weights: str = "s", file: UploadFile = None):

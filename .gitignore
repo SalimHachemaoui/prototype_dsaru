@@ -27,6 +27,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+Yolov5_StrongSORT_OSNet/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
